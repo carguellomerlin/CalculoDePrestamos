@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+	.celesteClaro{color:#5B89C1}
+	.azul{color:#2C5BA6}
+	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default{color:#fff;background-color:#5B89C1} .navbar-nav>.active>a:hover{color:#fff;background-color:#5B89C1}
+	.navbar-default{color:#fff;background-color:#2C5BA6;border-color:#2C5BA6}
+	.navbar-default .navbar-nav > li > a{color:#fff;}
+	.spaceLine{margin-top:1%;margin-bottom:1%;}
+	.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{background-color:#ffffff;}
+	.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{color:#fff;background-color:#5B89C1}
+	.vertical-align {
+		display: flex;
+		align-items: center;
+	}
+	fieldset{border:1px solid #e0e0e0;padding-left:20px;padding-right:20px}
+	
+	@media (min-width: 100px) and (max-width: 300px) {
+		.tituloLegend{font-size:12px}
+		legend {
+		  display: block;
+		  width: 70%;
+		  padding: 0;
+		  margin-bottom: @line-height-computed;
+		  font-size: (@font-size-base * 1.5);
+		  line-height: inherit;
+		  color: @legend-color;
+		  border: 0;
+		  border-bottom: 0px solid @legend-border-color;
+		  margin-bottom:0px;
+		}
+	}
+
+	@media (min-width: 300px) and (max-width: 372px) {
+		.tituloLegend{font-size:12px}
+		legend {
+		  display: block;
+		  width: 65%;
+		  padding: 0;
+		  margin-bottom: @line-height-computed;
+		  font-size: (@font-size-base * 1.5);
+		  line-height: inherit;
+		  color: @legend-color;
+		  border: 0;
+		  border-bottom: 0px solid @legend-border-color;
+		  margin-bottom:0px;
+		}
+	}
+
+	@media (min-width: 372px) and (max-width: 550px) {
+		.tituloLegend{font-size:12px}
+		legend {
+		  display: block;
+		  width: 50%;
+		  padding: 0;
+		  margin-bottom: @line-height-computed;
+		  font-size: (@font-size-base * 1.5);
+		  line-height: inherit;
+		  color: @legend-color;
+		  border: 0;
+		  border-bottom: 0px solid @legend-border-color;
+		  margin-bottom:0px;
+		}
+	}
+
+	@media (min-width: 550px) and (max-width: 650px) {
+		.tituloLegend{font-size:12px}
+		legend {
+		  display: block;
+		  width: 33%;
+		  padding: 0;
+		  margin-bottom: @line-height-computed;
+		  font-size: (@font-size-base * 1.5);
+		  line-height: inherit;
+		  color: @legend-color;
+		  border: 0;
+		  border-bottom: 0px solid @legend-border-color;
+		  margin-bottom:0px;
+		}
+	}
+
+	@media (min-width: 650px) and (max-width: 992px) {
+		.tituloLegend{font-size:14px}
+		legend {
+		  display: block;
+		  width: 28%;
+		  padding: 0;
+		  margin-bottom: @line-height-computed;
+		  font-size: (@font-size-base * 1.5);
+		  line-height: inherit;
+		  color: @legend-color;
+		  border: 0;
+		  border-bottom: 0px solid @legend-border-color;
+		  margin-bottom:0px;
+		}
+	}
+
+	@media (min-width: 992px) {
+		.tituloLegend{font-size:16px}
+		legend {
+		  display: block;
+		  width: 22%;
+		  padding: 0;
+		  margin-bottom: @line-height-computed;
+		  font-size: (@font-size-base * 1.5);
+		  line-height: inherit;
+		  color: @legend-color;
+		  border: 0;
+		  border-bottom: 0px solid @legend-border-color;
+		  margin-bottom:0px;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.tituloLegend{font-size:16px}
+		legend {
+		  display: block;
+		  width: 20%;
+		  padding: 0;
+		  margin-bottom: @line-height-computed;
+		  font-size: (@font-size-base * 1.5);
+		  line-height: inherit;
+		  color: @legend-color;
+		  border: 0;
+		  border-bottom: 0px solid @legend-border-color;
+		  margin-bottom:0px;
+		}
+	}
+
+	@media (min-width: 1535px) {
+		.tituloLegend{font-size:16px}
+		legend {
+		  display: block;
+		  width: 18%;
+		  padding: 0;
+		  margin-bottom: @line-height-computed;
+		  font-size: (@font-size-base * 1.5);
+		  line-height: inherit;
+		  color: @legend-color;
+		  border: 0;
+		  border-bottom: 0px solid @legend-border-color;
+		  margin-bottom:0px;
+		}
+	}
+
+  
+  </style>
+
+  
+	<script type="text/javascript">
+		
+		 $(function(){
+            $.ajax({
+				url:"https://raw.githubusercontent.com/dariosus/jsonProvincias/master/provincias.json",
+            }).done(function(data) {
+                data = JSON.parse(data);
+			    $.each(data, function(i, item) {
+                    $('#provincia').append($('<option>', {value:i, text:item.state}));
+                });
+			});
+
+		});
+
+	function Calcular(form){
+	
+		if (form.txtImporte.value == "")
+		{ alert("Por favor ingrese el Importe"); form.txtImporte.focus(); return}
+		if (form.txtTazaInteres.value == "")
+		{ alert("Por favor ingrese la taza de interes"); form.txtTazaInteres.focus(); return  }
+  
+		var importeTotal = 0;
+		
+		importeTotal = parseInt(form.txtImporte.value)  + ((parseInt(form.txtImporte.value) * parseInt(form.txtTazaInteres.value))/100);
+		form.txtTotal.value = parseInt(importeTotal);
+		form.txtCuota.value = parseInt(importeTotal) /12;
+	
+	}
+
+	</script>	
+  
+ </head>
+<body>
+<div class="container">
+
+<h1 class="azul">PRESTAMOS.COM</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+      <li><a href="#">INICIO</a></li>
+	  <li class="active"><a href="#">C&Aacute;LCULO DE PRESTAMOS</a></li>
+      
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+  <h3 class="azul "><b> C&aacute;lculo de pr&eacute;stamos</b></h3>
+  <p>C&aacute;lculo de pr&eacute;stamos - Para el c&aacute;lculo de pr&eacute;stamos, esta calculadora te permite calcular la cuota mensual a pagar en su pr&eacute;stamo, as&iacute; como el total de intereses.</p>
+
+  <form method="post" enctype="text/plain">
+	<fieldset>
+    <legend>
+		<div class="azul tituloLegend"><b>&nbsp; C&aacute;lculo de pr&eacute;stamos</b></div>
+	</legend>
+	 
+  </br>
+  <div class="row spaceLine vertical-align">
+    <div class="col-xs-3 col-sm-3 col-lg-3" >Importe</div>
+    <div class="col-xs-8 col-sm-5 col-lg-4" >
+		 <input type="number" class="form-control text-right" name="txtImporte" >
+	</div>
+	<div class="col-xs-1 col-sm-4 col-lg-5" ></div>
+  </div>
+    
+  <div class="row spaceLine vertical-align">
+    <div class="col-xs-3 col-sm-3 col-lg-3" >Provincias</div>
+    <div class="col-xs-8 col-sm-5 col-lg-4" >
+		<select name="provincia" class="form-control " id="provincia"></select>		  
+	</div>
+	<div class="col-xs-1 col-sm-4 col-lg-5" >&nbsp;</div>
+  </div>
+  
+  
+  <div class="row spaceLine vertical-align">
+    <div class="col-xs-3 col-sm-3 col-lg-3" >Taza de interes</div>
+    <div class="col-xs-8 col-sm-5 col-lg-4" >
+		<input type="number" class="form-control  text-right" name="txtTazaInteres">
+	</div>
+	<div class="col-xs-1 col-sm-4 col-lg-5 text-left" >%</div>
+  </div>
+	
+<input type="button" class="btn btn-primary spaceLine" onClick="Calcular(this.form)" value="CALCULAR">
+<input type="Reset" class="btn btn-primary spaceLine"  value="BORRAR">
+
+  <div class="row spaceLine vertical-align">
+    <div class="col-xs-3 col-sm-3 col-lg-3" >Cuota mensual</div>
+    <div class="col-xs-8 col-sm-5 col-lg-4" >
+		 <input type="number" class="form-control text-right " readonly name="txtCuota">
+	</div>
+	<div class="col-xs-1 col-sm-4 col-lg-5" >&nbsp;</div>
+  </div>
+  
+  
+  <div class="row spaceLine vertical-align">
+    <div class="col-xs-3 col-sm-3 col-lg-3" >Total a pagar</div>
+    <div class="col-xs-8 col-sm-5 col-lg-4" >
+		 <input type="number" class="form-control text-right" readonly name="txtTotal">
+	</div>
+	<div class="col-xs-1 col-sm-4 col-lg-5" >&nbsp;</div>
+  </div>
+  </br>
+  </fieldset>
+</form>
+
+	
+</div>
+</br>
+</div>
+
+</body>
+</html>
